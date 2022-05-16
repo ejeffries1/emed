@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">E-Med</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <% if doctor_signed_in? %>
+          <%= link_to "Dashboard", doctor_path(current_doctor), class:"nav-item nav-link" %>
+          <%= link_to "Edit", edit_doctor_registration_path, class:"nav-item nav-link" %>
+          <%# link_to "Sign out", destroy_doctor_session_path, method: :delete, class:"nav-item nav-link" %>
+          <%= button_to "Log out", destroy_doctor_session_path, method: :delete, data: { turbo: "false" } %>
+        <% elsif patient_signed_in? %>
+            <%= link_to "Edit", edit_patient_registration_path, class:"nav-item nav-link" %>
+            <%= link_to "Doctors", doctors_path, class:"nav-item nav-link" %>
+            <%= link_to "Sign out", destroy_patient_session_path, method: :delete, class:"nav-item nav-link" %>
+        <% else %>
+          <%= link_to "Sign in as Doctor", new_doctor_session_path, class:"nav-item nav-link" %>
+          <%= link_to "Sign in as Patient", new_patient_session_path, class:"nav-item nav-link" %>
+        <% end %>
+      </div>
+    </div>
+    </nav>
+  </header>
+  <head>
+   
+
+    <title>EmedicationApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
