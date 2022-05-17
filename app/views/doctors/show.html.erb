@@ -12,19 +12,13 @@
     </tr>
   </thead>
   <tbody>
+    <% current_doctor.patients.each do |patient|%>
     <tr>
-      <th scope="row">1</th>
-      <td>Sample name</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><%= patient.id %></th>
+      <td><%= link_to patient.fullname, patient_url(patient.id) %></td>
+      <%# binding.pry%>
+      <td><%= patient.email %></td>
     </tr>
-    <%# current_doctor.patients.each do |patient|%>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td><%# patient.fullname %></td>
-      <td>@twitter</td>
-    </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>

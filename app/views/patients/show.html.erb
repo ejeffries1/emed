@@ -1,0 +1,33 @@
+<% if patient_signed_in? %>
+    <h1>Hello <%= current_patient.first_name %></h1>
+    <h2>Your doctor is <%= current_patient.doctor.fullname %></h2>
+ <% elsif doctor_signed_in? %>
+    <h1> <%= @patient.fullname %> </h1>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Prescription Title</th>
+      <th scope="col">Medication</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Directions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%# current_doctor.patients.each do |patient|%>
+    <tr>
+      <th scope="row">1</th>
+      <td>Sample name</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    <%# end %>
+  </tbody>
+</table>
