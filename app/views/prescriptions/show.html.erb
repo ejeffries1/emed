@@ -1,0 +1,6 @@
+<h1> New Prescription <%=@prescription.title %> for patient: <%= @prescription.patient.fullname %></h1><br>
+<h2><%= @prescription.medication %><h2>
+<h2><%= @prescription.quantity %><h2>
+<h2><%= @prescription.description %><h2>
+
+<%= link_to "Patient Homepage", @prescription.patient %>  <%= link_to "Edit Prescription", edit_prescription_path(@prescription)%>

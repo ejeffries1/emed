@@ -3,6 +3,7 @@
     <h2>Your doctor is <%= current_patient.doctor.fullname %></h2>
  <% elsif doctor_signed_in? %>
     <h1> <%= @patient.fullname %> </h1>
+      <%= link_to "New Prescription", new_patient_prescription_path(@patient) %>
 <% end %>
 <table class="table">
   <thead>
@@ -15,19 +16,14 @@
     </tr>
   </thead>
   <tbody>
-  <%# current_doctor.patients.each do |patient|%>
+  <% @patient.prescriptions.each do |prescription| %>
     <tr>
       <th scope="row">1</th>
-      <td>Sample name</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><%= link_to prescription.title, prescription_path(prescription) %></td>
+      <td><%= prescription.medication %></td>
+      <td><%= prescription.quantity %></td>
+      <td><%= prescription.description %></td>
     </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>

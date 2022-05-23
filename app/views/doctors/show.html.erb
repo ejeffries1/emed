@@ -13,10 +13,10 @@
   </thead>
   <tbody>
     <% current_doctor.patients.each do |patient|%>
+    <%# binding.pry %>
     <tr>
       <th scope="row"><%= patient.id %></th>
-      <td><%= link_to patient.fullname, patient_url(patient.id) %></td>
-      <%# binding.pry%>
+      <td><%= link_to patient.fullname, patient_path(patient) %></td>
       <td><%= patient.email %></td>
     </tr>
     <% end %>

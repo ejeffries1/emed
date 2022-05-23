@@ -1,0 +1,35 @@
+<%= form_for(@prescription) do |f| %>
+<%= f.hidden_field :patient_id %>
+  
+<%# f.fields_for :prescriptions do |prescription| %>
+  <div class="form-group">
+    <%= f.label :title, "Prescription ID" %>
+    <br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :medication %>
+    <br>
+    <%= f.text_field :medication, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <br>
+    <%= f.number_field :quantity, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+<%# end %>
+
+  <div class="actions">
+    <br/>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>
