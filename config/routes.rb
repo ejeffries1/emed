@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   }
  
     resources :patients, only: [:index, :show] do 
-      resources :prescriptions, only: [:show, :index, :new, :edit]
+      resources :prescriptions, only: [:show, :index, :new, :edit, :update]
     end
 
-  resources :prescriptions, only: [:index, :new, :create, :edit, :show]
+  resources :prescriptions, only: [:index, :new, :create, :edit, :update, :show]
   devise_for :doctors, controllers: {
     registrations: 'doctors/registrations',
     sessions: 'doctors/sessions'

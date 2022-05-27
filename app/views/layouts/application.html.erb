@@ -15,7 +15,7 @@
           <%= button_to "Log out", destroy_doctor_session_path, method: :delete, data: { turbo: "false" } %>
         <% elsif patient_signed_in? %>
             <%= link_to "Edit", edit_patient_registration_path, class:"nav-item nav-link" %>
-            <%= link_to "Doctors", doctor_path, class:"nav-item nav-link" %>
+            <%= link_to "Dashboard", patient_path(current_patient), class:"nav-item nav-link" %>
             <%# link_to "Sign out", destroy_patient_session_path, method: :delete, class:"nav-item nav-link" %>
             <%= button_to "Log out", destroy_doctor_session_path, method: :delete, data: { turbo: "false" } %>
         <% else %>

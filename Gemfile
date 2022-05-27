@@ -38,7 +38,6 @@ gem "jbuilder"
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'pry', '~> 0.14.1'
-#gem 'simple_form'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]

@@ -13,7 +13,6 @@
   </thead>
   <tbody>
     <% current_doctor.patients.each do |patient|%>
-    <%# binding.pry %>
     <tr>
       <th scope="row"><%= patient.id %></th>
       <td><%= link_to patient.fullname, patient_path(patient) %></td>
@@ -21,4 +20,10 @@
     </tr>
     <% end %>
   </tbody>
-</table>
+</table></br>
+
+<h2>Prescriptions</h2>
+<%current_doctor.prescriptions.each do |prescription| %>
+<%= link_to prescription.title, prescription_path(prescription) %>
+
+<% end %>
