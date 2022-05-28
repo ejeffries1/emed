@@ -24,6 +24,6 @@
 
 <h2>Prescriptions</h2>
 <%current_doctor.prescriptions.each do |prescription| %>
-<%= link_to prescription.title, prescription_path(prescription) %>
+<%= link_to prescription.title, prescription_path(prescription) %></br>
 
 <% end %>
